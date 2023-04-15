@@ -1,0 +1,17 @@
+.blogs-container{
+    /* border: 10px solid red; */
+    position: relative;
+}
+.blogs-wrapper{
+    background-color: rgba(0, 0, 0, 0.393);
+    position:absolute;
+    top: 0;
+    width: 100%;
+    height: 90vh;
+}
+.blogs-comp{
+    border: 10px solid red;
+    width: 80%;
+    margin: auto;
+    color: white;
+}
