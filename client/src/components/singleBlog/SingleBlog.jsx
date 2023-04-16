@@ -3,8 +3,10 @@ import React, { useEffect, useState } from 'react'
 import './singleBlog.css'
 import StarRateIcon from '@mui/icons-material/StarRate';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
+import DeleteIcon from '@mui/icons-material/Delete';
 import {  useNavigate } from 'react-router-dom';
 import Form from "../form/Form"
+import toast from 'react-hot-toast';
 const SingleBlog = ({blogId, blogIdx}) => {
     const [open, setOpen]= useState(false)
     const [blogData, setBlogData]= useState({})
@@ -43,8 +45,16 @@ const SingleBlog = ({blogId, blogIdx}) => {
         setId(id)
       }
 
-    //   console.log("first", id)
-
+      const hanldeDelete=async(id)=>{
+        try {
+            await axios.delete(`https://anime-blog-server.onrender.com/api/v1/blog/delete/${id}`)
+            toast.success("your blog deleted")
+        } catch (error) {
+           console.log(error) 
+        }
+        window.location.reload()
+       }
+    
 
   return (
     <>
@@ -67,11 +77,16 @@ const SingleBlog = ({blogId, blogIdx}) => {
           </div>
             <div className="singleblog-title">
             <h2>{blogData?.blog?.title}</h2>
+            <div>
            {
             blogData?.blog?.user==userId&&
             <EditRoundedIcon  onClick={()=>hanldeEdit(blogData?.blog?._id)} style={{"cursor":"pointer"}}/>
-        //    console.log( blogData?.blog?.user==userId)
            }
+             {
+            blogData?.blog?.user==userId&&
+            <DeleteIcon  onClick={()=>hanldeDelete(blogData?.blog?._id)} style={{"cursor":"pointer"}}/>
+           }
+           </div>
             </div>
             <hr />
             <div className="singleblog-desc">

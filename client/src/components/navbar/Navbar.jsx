@@ -11,26 +11,25 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   const [selectedButton, setSelectedButton] = useState(null);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const handleButtonClick = (buttonId) => {
     setSelectedButton(buttonId);
     if (buttonId === 1) {
       setOpen(!open);
+    }else{
+      setOpen(false);
     }
   };
 
 
 
- 
-
-  console.log(open);
   return (
     <>
       <div className="navbar-container">
         <div className="navbar-wrapper">
           <div className="navbar-title">
             <Link to="/" className="route">
-              <h3>Anime Blog</h3>
+              <h3   onClick={(e)=>setOpen(false)}>Anime Blog</h3>
             </Link>
           </div>
 
