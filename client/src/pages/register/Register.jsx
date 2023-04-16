@@ -47,6 +47,7 @@ const handleSubmit=async(e)=>{
               className="reg-inputs"
               value={input.name}
               onChange={(e)=>handleChange(e)}
+              required={true}
             />
           </div>
           <div className="reg-field">
@@ -60,6 +61,7 @@ const handleSubmit=async(e)=>{
               className="reg-inputs"
               value={input.email}
               onChange={(e)=>handleChange(e)}
+              required={true}
             />
           </div>
           <div className="reg-field">
@@ -73,6 +75,7 @@ const handleSubmit=async(e)=>{
               className="reg-inputs"
               value={input.password}
               onChange={(e)=>handleChange(e)}
+              required={true}
             />
           </div>
           <button className="register" type="submit">Register</button>
