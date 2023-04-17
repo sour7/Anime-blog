@@ -6,6 +6,8 @@ client setup:
 
 step2: npm run dev
 
+<===============>
+
 server setup:
 
 .env file key:
